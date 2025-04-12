@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flight Booking System</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+	rel="stylesheet">
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	background: url('./images/flightt.jpg') no-repeat center center/cover;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+	margin: 0;
+	/* Removed the blur effect */
+	overflow-y: auto;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 40px;
+	background: rgba(0, 0, 0, 0.4);
+	color: white;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+header h1, nav ul li a {
+	transition: all 0.3s ease-in-out;
+}
+
+header h1:hover, nav ul li a:hover {
+	color: lightblue;
+	text-shadow: 0 0 15px rgba(0, 0, 255, 0.8);
+}
+
+.logo {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin-right: 20px;
+}
+
+nav ul {
+	list-style: none;
+	display: flex;
+	gap: 20px;
+	padding: 0;
+}
+
+nav ul li {
+	display: inline;
+}
+
+nav ul li a {
+	color: white;
+	text-decoration: none;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.container {
+	max-width: 600px;
+	width: 90%;
+	background: rgba(255, 255, 255, 0.2);
+	padding: 40px;
+	border-radius: 15px;
+	box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+	margin-top: 120px;
+	margin-bottom: 80px;
+	/* Removed the blur effect */
+}
+
+.container h1 {
+	text-align: center;
+	color: black;
+	margin-bottom: 30px;
+}
+
+.form-group {
+	position: relative;
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+/* Remove the border and set glowing effect */
+input, select {
+	width: 100%;
+	padding: 10px 12px; /* Reduced padding */
+	border: none; /* Removed the border */
+	outline: none; /* Removes the outline when the element is clicked */
+	border-radius: 25px;
+	transition: all 0.3s ease-in-out;
+	background: rgba(255, 255, 255, 0.3);
+	color: black;
+	font-size: 14px; /* Slightly smaller font size */
+}
+
+/* Add hover effect */
+input:hover, select:hover {
+	box-shadow: 0 0 10px darkblue; /* Glowing effect on hover */
+}
+
+/* Add focus effect (when clicked) */
+input:focus, select:focus {
+	box-shadow: 0 0 15px darkblue; /* Glowing effect when clicked */
+}
+
+button {
+	width: 100%;
+	padding: 14px;
+	background: linear-gradient(90deg, #007bff, #0056b3);
+	color: white;
+	border: none;
+	border-radius: 25px;
+	font-size: 18px;
+	cursor: pointer;
+	transition: all 0.3s;
+	box-shadow: 0 5px 15px rgba(0, 0, 255, 0.3);
+}
+
+button:hover {
+	background: linear-gradient(90deg, #0056b3, #003c7a);
+	transform: translateY(-2px);
+}
+
+footer {
+	position: relative;
+	text-align: center;
+	font-size: 14px;
+	color: white;
+	width: 100%;
+	padding: 10px 0;
+	background: rgba(0, 0, 0, 0.4);
+	margin-top: 50px;
+}
+
+@media ( max-width : 768px) {
+	.container {
+		width: 95%;
+		padding: 20px;
+	}
+	header {
+		flex-direction: column;
+		text-align: center;
+		padding: 15px;
+	}
+	nav ul {
+		flex-direction: column;
+		gap: 10px;
+	}
+}
+</style>
+</head>
+<body>
+	<header>
+		<img src="./images/logo.jpg" alt="Airline Logo" class="logo">
+		<h1>SKYWINGS AIRLINES</h1>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="booking.html">Login</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div class="container">
+		<form id="bookingForm">
+			<div class="form-group">
+				<h1>Book Your Flight</h1>
+			</div>
+			<div class="form-group">
+				<input type="date" id="flightDate" required>
+			</div>
+			<div class="form-group">
+				<select id="from" required>
+					<option value="" disabled selected>From</option>
+					<option value="Delhi">Delhi</option>
+					<option value="Mumbai">Mumbai</option>
+					<option value="Bangalore">Bangalore</option>
+					<option value="Chennai">Chennai</option>
+					<option value="Goa">Goa</option>
+					<option value="Hyderabad">Hyderabad</option>
+					<option value="Khansaar">Khansaar</option>
+                    <option value="Mahishmathi">Mahishmathi</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<select id="to" required>
+					<option value="Delhi">Delhi</option>
+					<option value="Mumbai">Mumbai</option>
+					<option value="Bangalore">Bangalore</option>
+					<option value="Chennai">Chennai</option>
+					<option value="Goa">Goa</option>
+					<option value="Hyderabad">Hyderabad</option>
+					<option value="Khansaar">Khansaar</option>
+                    <option value="Mahishmathi">Mahishmathi</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<select id="seatClass" required>
+					<option value="" disabled selected>Seat Class</option>
+					<option value="Economy">Economy</option>
+					<option value="Business">Business</option>
+					<option value="First Class">First Class</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<select id="payment" required>
+					<option value="" disabled selected>Payment Method</option>
+					<option value="credit">Credit Card</option>
+					<option value="debit">Debit Card</option>
+					<option value="paypal">PayPal</option>
+				</select>
+			</div>
+			<button type="submit">Book Now</button>
+		</form>
+	</div>
+
+	<footer> &copy; 2025 Airline Reservation System. All Rights
+		Reserved. </footer>
+
+	<script>
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            let from = document.getElementById("from").value;
+            let to = document.getElementById("to").value;
+            if (from === to) {
+                alert("Departure and destination cannot be the same.");
+                event.preventDefault();
+            }
+        });
+
+        // Set minimum date as today
+        let today = new Date().toISOString().split("T")[0];
+        document.getElementById("flightDate").setAttribute("min", today);
+
+        // Set maximum date as 6 months from today
+        let maxDate = new Date();
+        maxDate.setMonth(maxDate.getMonth() + 6);
+        document.getElementById("flightDate").setAttribute("max", maxDate.toISOString().split("T")[0]);
+    </script>
+</body>
+</html>
